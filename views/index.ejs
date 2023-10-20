@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include ("./partials/head.ejs") %>
+
+    <body>
+        <!--log in page. inputs are not saved. form redirect to the collection page-->
+        <div class="container d-flex justify-content-center align-items-center vh-100">
+            <form class="d-flex flex-column align-items-center">
+                <h2 class="mb-4 text-center">Sign Up</h2>
+                <div class="form-group">
+                    <input type="text" class="form" id="username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form" id="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="toCollection" id="btnCollection">Sign Up</button>
+            </form>
+        </div>
+        <script>
+            document.getElementById("btnCollection").addEventListener("click", function () {
+                window.location.href = "collection";
+            });
+        </script>
+    </body>
+
+</html>

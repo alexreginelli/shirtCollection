@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ("./partials/head.ejs") %>
+
+    <body>
+            <header>
+                <div class="header-container">
+                    <h1>Welcome to my collection!</h1>
+                    <div class="navLink">
+                        <%- include("./partials/nav.ejs") %>
+                    </div>
+                </div>
+            </header>
+            <main class="container-xl flex  align-items-center">
+                    <form action="/collection" method="POST">
+                        <div class="form-group">
+                            <!--form allow to create a post. user can choose between 8 options.
+                            title and description are entirely up to the user-->
+                            <select name="url" required>
+                                <option value="/images/roma1.png">Shirt 1</option>
+                                <option value="/images/roma2.png">Shirt 2</option>
+                                <option value="/images/roma3.png">Shirt 3</option>
+                                <option value="/images/roma4.png">Shirt 4</option>
+                                <option value="/images/roma5.png">Shirt 5</option>
+                                <option value="/images/roma6.png">Shirt 6</option>
+                                <option value="/images/roma7.png">Shirt 7</option>
+                                <option value="/images/roma8.png">Shirt 8</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" required name="title" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <textarea required name="description"></textarea>
+                        </div>
+                        <button>Upload shirt</button>
+                    </form>
+
+                </div>
+            </main>
+            <%- include ("./partials/footer.ejs") %>
+    </body>
+
+</html>

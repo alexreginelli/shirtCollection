@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ("./partials/head.ejs") %>
+
+    <body>
+            <header>
+                <div class="header-container">
+                    <h1>Welcome to my collection!</h1>
+                </div>
+                <div class="navLink">
+                    <%- include("./partials/nav.ejs") %>
+                </div>
+            </header>
+
+            <main class="container-xl flex  align-items-center">
+                <div class="d-flex flex-column align-items-center">
+                    <!--create look-a-like polaroid-->
+                    <% if (shirts.length) { shirts.forEach(shirt=> { %>
+                        <a class="toPage" href="/<%= shirt._id %>">
+                            <div class="polaroid row justify-content-center d-flex">
+                                <div class="frame row justify-content-center d-flex">
+                                    <div class="photo align-items-center">
+                                        <img src="<%= shirt.url %>" alt="daje">
+                                    </div>
+                                    <div class="description">
+                                        <h4>
+                                            <%= shirt.title %>
+                                        </h4>
+                                        <p>
+                                            <%= shirt.description %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <% }); } else {%>
+                            <p>Sorry, there are no shirt in the collection.</p>
+                            <% }%>
+
+                </div>
+            </main>
+            <%- include ("./partials/footer.ejs") %>
+    </body>
+
+</html>

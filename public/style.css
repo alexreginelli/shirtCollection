@@ -1,0 +1,119 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    align-items: center;
+}
+
+body {
+    background-color: #862633;
+}
+
+footer {
+    background-color: black;
+    height: 150px;
+    color: white;
+    text-align: right;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+.toPage, .toPage:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.header-container {
+    background-color: #F2A900;
+    padding: 10px;
+}
+
+.navLink {
+    background-color: black;
+    padding: 10px;
+}
+
+.navLink a {
+    color: white;
+    text-decoration: none;
+}
+
+.navLink a:hover {
+    color:#F2A900
+}
+
+.polaroid {
+    background-color: white;
+    width: 500px;
+    border: 1px solid grey;
+    box-shadow: 2px 2px 5px black;
+    margin: 20px;
+}
+
+.frame {
+    padding: 10px;
+    align-items: center;
+}
+
+.photo {
+    background-color: beige;
+    width: 300px;
+    height: 200px
+}
+
+img {
+    width: 300px;
+    height: 200px
+}
+
+.singleShirt {
+    width: 600px;
+    height: 400px;
+}
+
+.singleDescription {
+    margin: 10px;
+    font-weight: bold;
+}
+
+main {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+}
+
+form {
+    background-color: #F2A900;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+form input {
+    background-color: white;
+    border-radius: 5px;
+    border-style: none;
+}
+
+form textarea {
+    width: 50%;
+}
+
+.toCollection {
+    width: 100%;
+    border-style: none;
+    border-radius: 2px;
+}
+
+#editShirt {
+    width: 100%
+}
+
+button {
+    background-color: #92565e;
+    border-style: none;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}

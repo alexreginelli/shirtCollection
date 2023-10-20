@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <header>
+            <div class="header-container">
+                <h2>
+                    <%= shirt.title %>
+                </h2>
+            </div>
+            <div class="navLink">
+                <%- include("./partials/nav.ejs") %>
+            </div>
+        </header>
+        <main class=" container-xl d-flex flex-column align-items-center">
+            <div class="d-flex flex-row align-items-center">
+                <div id="showShirt">
+                    <img class="singleShirt" src="<%= shirt.url %>" alt="Shirt">
+                    <div class="singleDescription">
+                        <p>
+                            <%= shirt.description %>
+                        </p>
+                    </div>
+                    <button id="deleteBtn" data-id="<%= shirt._id %>">Delete shirt</button>
+
+                    <button id="editBtn">Edit shirt</button>
+                </div>
+            </div>
+
+            <div id="editShirt" style="display: none;">
+                <h3>Edit shirt details</h3>
+                <form action="/:id" method="post">
+                    <input type="text" required name="id" value="<%= shirt._id %>" hidden><br>
+                    <div class="form-group">
+                        <label>Title</label><br>
+                        <input type="text" required name="title" value="<%= shirt.title %>" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <label>Short description</label><br>
+                        <textarea required name="description"><%= shirt.description %></textarea>
+                    </div>
+                    <button id="saveBtn">Save changes</button>
+                </form>
+            </div>
+        </main>
+        <%- include("./partials/footer.ejs") %>
+            <script>
+                const deleteBtnElement = document.getElementById("deleteBtn");
+                const viewShirtDivElement = document.getElementById("showShirt");
+                const editShirtDivElement = document.getElementById("editShirt");
+                const editBtnElement = document.getElementById("editBtn");
+                const saveBtnElement = document.getElementById("saveBtn");
+                deleteBtnElement.addEventListener("click", (e) => {
+                    const backEndPoint = `/${deleteBtnElement.dataset.id}`;
+                    fetch(backEndPoint, {
+                        method: "DELETE"
+                    })
+                        .then((response) => response.json())
+                        .then((responseJson) => window.location.href = responseJson.redirect)
+                        .catch((error) => console.log(error));
+                });
+
+                editBtnElement.addEventListener("click", (e) => {
+                    viewShirtDivElement.style.display = "none";
+                    editShirtDivElement.style.display = "block";
+                });
+                saveBtnElement.addEventListener("click", (e) => {
+                    viewShirtDivElement.style.display = "block";
+                    viewShirtDivElement.style.display = "none";
+                });
+            </script>
+    </body>
+
+</html>
